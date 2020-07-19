@@ -1,17 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <img alt="Vue logo" src="./assets/logo.png" style="width: 50px; vertical-align: middle">
+      <span style="padding: 10px">Vue week schedule</span>
+    </div>
+    <div style="width: 500px; margin: 0 auto; padding: 20px">
+      <schedule v-model="schedule" />
+    </div>
+    <div style="margin: 20px; padding: 20px; background-color: gray; color: white">
+      <code>{{ JSON.stringify(schedule) }}</code>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Schedule from './components/Schedule'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Schedule
+  },
+  data () {
+    return {
+      schedule: {
+        0: [],
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+        5: [],
+        6: []
+      }
+    }
   }
 }
 </script>

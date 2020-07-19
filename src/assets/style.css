@@ -1,0 +1,59 @@
+.vws-table-rule {
+    border-collapse: separate;
+  }
+  .vws-table-rule-heading, .vws-rule-time {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .vws-table-rule-heading div, .vws-rule-time .vws-time-list {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    margin: 1px;
+    padding: 10px;
+    font-size: 9px;
+  }
+  
+  .vws-time-rule {
+    width: 100px;
+    display: block ruby;
+  }
+  .vws-rule-time-week, .vws-rule-time-item{
+    cursor: pointer;
+  }
+  .vws-rule-time-week, .vws-rule-time-item{
+    background: #223642;
+  }
+  
+  .vws-rule-time-week.active, .vws-rule-time-item.active{
+    background: #84c9fc;
+  }
+  .vws-rule-time-week:hover, 
+  .vws-rule-time-item:hover, 
+  .vws-rule-time-week.active:hover, 
+  .vws-rule-time-item.active:hover{
+    background: #84dafc7a;
+  }
+  
+  .vws-rule-time-item span{
+    display: none;
+  }
+  
+  .vws-rule-time-item .parent {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    height: 4px;
+  }
+  
+  .vws-rule-time-item.active span {
+    display: block;
+    text-align: center;
+    color: #000;
+  }
