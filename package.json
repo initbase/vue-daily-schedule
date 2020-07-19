@@ -8,6 +8,13 @@
   "main": "dist/vue-schedule.umd.js",
   "module": "dist/vue-schedule.esm.js",
   "unpkg": "dist/vue-schedule.min.js",
+  "repository": "burhanahmeed/vue-daily-schedule",
+  "keywords": [
+    "vue",
+    "component",
+    "schedule",
+    "scheduler"
+  ],
   "browser": {
     "./sfc": "src/components/Schedule.vue"
   },

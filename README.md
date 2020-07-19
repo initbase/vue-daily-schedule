@@ -1,4 +1,4 @@
-# vue-schedule
+# vue-daily-schedule
 
 ## Project setup
 ```
