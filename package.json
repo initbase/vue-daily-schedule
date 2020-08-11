@@ -1,6 +1,6 @@
 {
   "name": "vue-daily-schedule",
-  "version": "1.0.0",
+  "version": "0.2.1",
   "private": false,
   "author": "Burhanuddin Ahmed",
   "license": "MIT",
@@ -8,7 +8,9 @@
   "main": "dist/vue-schedule.umd.js",
   "module": "dist/vue-schedule.esm.js",
   "unpkg": "dist/vue-schedule.min.js",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": "burhanahmeed/vue-daily-schedule",
   "keywords": [
     "vue",
