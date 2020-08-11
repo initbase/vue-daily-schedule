@@ -12,11 +12,11 @@
 
 ### Install
 ```
-npm install vue-daily-schedule
+npm install vue-daily-scheduler
 
 # or yarn
 
-yarn add vue-daily-schedule
+yarn add vue-daily-scheduler
 ```
 then, use inside a component
 ```javascript
