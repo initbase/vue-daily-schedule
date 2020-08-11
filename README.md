@@ -57,3 +57,4 @@ Feel free if you want to submit pull request or an issue.
 2. Oleg Zernov (Awesome draggable funciton)
 
 ### License
+ MIT
