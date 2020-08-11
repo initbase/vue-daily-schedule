@@ -11,6 +11,7 @@
 [Demo here](https://vue-daily-schedule.vercel.app/)
 
 ### Install
+Node
 ```
 npm install vue-daily-scheduler
 
@@ -18,6 +19,11 @@ npm install vue-daily-scheduler
 
 yarn add vue-daily-scheduler
 ```
+Browser
+```html
+<script scr="https://unpkg.com/vue-daily-scheduler@latest/dist/vue-schedule.min.js" />
+```
+
 then, use inside a component
 ```javascript
 import VueSchedule from 'vue-daily-schedule'
