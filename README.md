@@ -6,7 +6,11 @@
 
 </div>
 
-## Install
+### Demo
+
+[Demo here](https://vue-daily-schedule.vercel.app/)
+
+### Install
 ```
 npm install vue-daily-schedule
 
@@ -44,3 +48,12 @@ use it inside vue template
     </div>
 </template>
 ```
+
+### Contributor
+Feel free if you want to submit pull request or an issue.
+
+##### Creator
+1. Burhanuddin Ahmad (Layoutting)
+2. Oleg Zernov (Awesome draggable funciton)
+
+### License
