@@ -1,24 +1,46 @@
-# vue-daily-schedule
+# vue-daily-schedule / Vue week schedule
 
-## Project setup
-```
-yarn install
-```
+<div align='center'>
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+[![VEDR](./src/assets/preview.png)](.)
 
-### Compiles and minifies for production
-```
-yarn build
-```
+</div>
 
-### Run your unit tests
+## Install
 ```
-yarn test:unit
-```
+npm install vue-daily-schedule
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# or yarn
+
+yarn add vue-daily-schedule
+```
+then, use inside a component
+```javascript
+import VueSchedule from 'vue-daily-schedule'
+export default {
+    components: {
+        VueSchedule
+    },
+    data () {
+        return {
+            schedule: {
+                0: [],
+                1: [],
+                2: [],
+                3: [],
+                4: [],
+                5: [],
+                6: []
+            }
+        }
+    }
+}
+```
+use it inside vue template
+```html
+<template>
+    <div>
+        <VueSchedule v-model="schedule" />
+    </div>
+</template>
+```
