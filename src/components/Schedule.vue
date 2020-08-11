@@ -1,3 +1,11 @@
+<!--
+
+Copyright Sultan Ads 2020.
+1. 2020 Burhanuddin Ahmad (Layoutting)
+2. 2020 Oleg Zernov (Awesome draggable function)
+
+-->
+
 <template>
   <div class="vws-rule-custom">
     <div class="vws-rule-row">
