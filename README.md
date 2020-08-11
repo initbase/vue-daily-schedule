@@ -21,7 +21,7 @@ yarn add vue-daily-scheduler
 ```
 Browser
 ```html
-<script scr="https://unpkg.com/vue-daily-scheduler@latest/dist/vue-schedule.min.js" />
+<script src="https://unpkg.com/vue-daily-scheduler@latest/dist/vue-schedule.min.js" />
 ```
 
 then, use inside a component
