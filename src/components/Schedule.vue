@@ -7,7 +7,8 @@ Copyright Sultan Ads 2020.
 -->
 
 <template>
-  <div class="vws-rule-custom">
+<div style="position: relative">
+  <div class="vws-rule-custom" style='user-select: none;'>
     <div class="vws-rule-row">
       <div class="vws-table-rule">
         <div class="vws-table-rule-heading">
@@ -21,22 +22,93 @@ Copyright Sultan Ads 2020.
             <div class="text-center">Fr</div>
             <div class="text-center">Sa</div>
         </div>
-        <div class="vws-table-rule-body" id='schelude' ref="draggableArea">
+        <div class="vws-table-rule-body" id='schelude' ref="draggableArea" @mousedown="startDrag" @mousemove="doDrag">
           <div ref="ruleTime" class="vws-rule-time" v-for="(t, idx) in timeArray" :key="idx">
-            <div ref="ruleTimeTime" class="vws-time-list vws-rule-time-time vws-time-rule" :data-val="t">{{ t }}</div>
-            <div ref="ruleTimeWeek" :class="{'vws-time-list vws-rule-time-week': true, 'active': checkFullWeek(idx)}" @click="toggleWeek(idx, checkFullWeek(idx))"></div>
-            <div ref="ruleTimeItem" :class="{'vws-time-list vws-rule-time-item': true, 'active': timetable[0].find(el => el == idx ) != undefined ? true:false}" @click="toggleDay(0, idx)"><span>Su</span></div>
-            <div :class="{'vws-time-list vws-rule-time-item': true, 'active': timetable[1].find(el => el == idx ) != undefined ? true:false}" @click="toggleDay(1, idx)"><span>Mo</span></div>
-            <div :class="{'vws-time-list vws-rule-time-item': true, 'active': timetable[2].find(el => el == idx ) != undefined ? true:false}" @click="toggleDay(2, idx)"><span>Tu</span></div>
-            <div :class="{'vws-time-list vws-rule-time-item': true, 'active': timetable[3].find(el => el == idx ) != undefined ? true:false}" @click="toggleDay(3, idx)"><span>We</span></div>
-            <div :class="{'vws-time-list vws-rule-time-item': true, 'active': timetable[4].find(el => el == idx ) != undefined ? true:false}" @click="toggleDay(4, idx)"><span>Th</span></div>
-            <div :class="{'vws-time-list vws-rule-time-item': true, 'active': timetable[5].find(el => el == idx ) != undefined ? true:false}" @click="toggleDay(5, idx)"><span>Fr</span></div>
-            <div :class="{'vws-time-list vws-rule-time-item': true, 'active': timetable[6].find(el => el == idx ) != undefined ? true:false}" @click="toggleDay(6, idx)"><span>Sa</span></div>
+            <div 
+              ref="ruleTimeTime" 
+              class="vws-time-list vws-rule-time-time vws-time-rule" 
+              :data-val="t"
+            >
+              {{ t }}
+            </div>
+            <div 
+              ref="ruleTimeWeek" 
+              :class="{
+                'vws-time-list vws-rule-time-week': true, 
+                'active': checkFullWeek(idx)
+              }" 
+              @click="toggleWeek(idx, checkFullWeek(idx))"
+            ></div>
+            <div 
+              ref="ruleTimeItem" 
+              :class="{
+                'vws-time-list vws-rule-time-item': true, 
+                'active': timetable[0].find(el => el == idx ) != undefined ? true:false
+              }" 
+              @click="toggleDay(0, idx)"
+            >
+              <span>Su</span>
+            </div>
+            <div 
+              :class="{
+                'vws-time-list vws-rule-time-item': true, 
+                'active': timetable[1].find(el => el == idx ) != undefined ? true:false
+              }" 
+              @click="toggleDay(1, idx)"
+            >
+              <span>Mo</span>
+            </div>
+            <div 
+              :class="{
+                'vws-time-list vws-rule-time-item': true, 
+                'active': timetable[2].find(el => el == idx ) != undefined ? true:false
+              }" 
+              @click="toggleDay(2, idx)"
+            >
+              <span>Tu</span>
+            </div>
+            <div 
+              :class="{
+                'vws-time-list vws-rule-time-item': true, 
+                'active': timetable[3].find(el => el == idx ) != undefined ? true:false
+              }" 
+              @click="toggleDay(3, idx)"
+            >
+              <span>We</span>
+            </div>
+            <div 
+              :class="{
+                'vws-time-list vws-rule-time-item': true, 
+                'active': timetable[4].find(el => el == idx ) != undefined ? true:false
+              }" 
+              @click="toggleDay(4, idx)"
+            >
+              <span>Th</span>
+            </div>
+            <div 
+              :class="{
+                'vws-time-list vws-rule-time-item': true, 
+                'active': timetable[5].find(el => el == idx ) != undefined ? true:false
+              }" 
+              @click="toggleDay(5, idx)"
+            >
+              <span>Fr</span>
+            </div>
+            <div 
+              :class="{
+                'vws-time-list vws-rule-time-item': true, 
+                'active': timetable[6].find(el => el == idx ) != undefined ? true:false
+              }" 
+              @click="toggleDay(6, idx)"
+            >
+              <span>Sa</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -70,7 +142,6 @@ export default {
   },
   methods: {
     startDrag(event) {
-      console.info(event)
       this.dragging = true;
       this.x = this.y = 0;
       this.startX = this.startY = this.maxY = this.maxX  = 0;
@@ -92,6 +163,7 @@ export default {
         width: this.$refs.ruleTimeWeek[0].clientWidth,
       }
       this.data = {container, time, item, week}
+
       let firstItemX = this.data.time.width + this.data.week.width + 4 + 15
       let day = 6
       for (let i = 0; i < 8; i++) {
@@ -100,6 +172,7 @@ export default {
           day = i -1
         }
       }
+
       let timeData = 92
       let j = 1;
       this.$refs.ruleTime.map((one, timeIndex) => {
@@ -144,75 +217,77 @@ export default {
           this.startY = event.layerY;;
         }
         let firstItemX = this.data.time.width + this.data.week.width + 4 + 15
-        for (let i = 0; i < 8; i++) {
-          let width = firstItemX + i * (this.data.item.width + 2)
-          let isSetItem = false;
-          if (this.startX < this.x) {
-            if (width > this.startX && width  < event.layerX  + this.data.item.width ) {
-              isSetItem = true;
-            }
-          } else {
-            if (width < this.startX + this.data.item.width && width  > event.layerX   ) {
-              isSetItem = true;
-            }
+      for (let i = 0; i < 8; i++) {
+        let width = firstItemX + i * (this.data.item.width + 2)
+        let isSetItem = false;
+        if (this.startX < this.x) {
+          if (width > this.startX && width  < event.layerX  + this.data.item.width ) {
+            isSetItem = true;
           }
-          
-          let j = 1;
-          this.$refs.ruleTime.map((one, timeIndex) => {
-            if (!one.className.includes('hides')) {
-              let height = 35 + j * (this.data.item.height + 2)
-              if (this.startY < this.y) {
-                if (height > this.startY && height  < this.y + this.data.item.height) {
-                  isSetItem && (this.dragWeek ? this.setWeek (timeIndex, this.dragValue) : this.setDay(i - 1, timeIndex, this.dragValue))
-                  
-                }
-                if ( height > this.startY && height  < this.maxY + this.data.item.height ) {
-                  if (this.startX < this.x) {
-                    if (this.x < this.maxX && width + this.data.item.width < this.maxX && width > this.x - this.data.item.width && i < 6) {
-                      this.setDay(i + 1, timeIndex, !this.dragValue, '1')
-                    }
-                  } else {
-                    if (this.x > this.minX && width  > this.minX - this.data.item.width && width < this.x - this.data.item.width && i < 6) {
-                      this.setDay(i , timeIndex, !this.dragValue, '5')
-                    }
-                  }
-                }
-                if (this.y < this.maxY) {
-                  if (height > this.y + this.data.item.height && height  < this.maxY + this.data.item.height) {
-                    isSetItem && this.setDay(i - 1, timeIndex, !this.dragValue, '2')
-                  }
-                }
-              } else {
-                if (height - this.data.item.height  < this.startY    && height > this.y ) {
-                  isSetItem && (this.dragWeek ? this.setWeek (timeIndex, this.dragValue) : this.setDay(i - 1, timeIndex, this.dragValue))
-                  
-                }
+        } else {
+          if (width < this.startX + this.data.item.width && width  > event.layerX   ) {
+            isSetItem = true;
+          }
+        }
+        
+        let j = 1;
+        this.$refs.ruleTime.map((one, timeIndex) => {
+          if (!one.className.includes('hides')) {
+            let height = 35 + j * (this.data.item.height + 2)
+            if (this.startY < this.y) {
+              if (height > this.startY && height  < this.y + this.data.item.height) {
+                isSetItem && (this.dragWeek ? this.setWeek (timeIndex, this.dragValue) : this.setDay(i - 1, timeIndex, this.dragValue))
                 
-                if ( height - this.data.item.height  < this.startY && height  > this.minY ) {
-                  if (this.startX < this.x) {
-                    if (this.x < this.maxX && width + this.data.item.width < this.maxX && width > this.x  - this.data.item.width ) {
-                      this.setDay(i + 1, timeIndex, !this.dragValue, '3')
-                    }
-                  } else {
-                    if (this.x > this.minX && width > this.minX - this.data.item.width  && width < this.x  - this.data.item.width ) {
-                      this.setDay(i , timeIndex, !this.dragValue, '3')
-                    }
+              }
+              if ( height > this.startY && height  < this.maxY + this.data.item.height ) {
+                if (this.startX < this.x) {
+                  if (this.x < this.maxX && width + this.data.item.width < this.maxX && width > this.x - this.data.item.width && i < 6) {
+                    this.setDay(i + 1, timeIndex, !this.dragValue, '1')
                   }
-                }
-                if (this.y > this.minY) {
-                  if (height   > this.minY    && height < this.y) {
-                    isSetItem && this.setDay(i - 1, timeIndex, !this.dragValue, '4')
+                } else {
+                  if (this.x > this.minX && width  > this.minX - this.data.item.width && width < this.x - this.data.item.width && i < 6) {
+                    this.setDay(i , timeIndex, !this.dragValue, '5')
                   }
                 }
               }
-              if (this.startX < this.x) {
-                if (this.x < this.maxX) {
+              if (this.y < this.maxY) {
+                if (height > this.y + this.data.item.height && height  < this.maxY + this.data.item.height) {
+                  isSetItem && this.setDay(i - 1, timeIndex, !this.dragValue, '2')
                 }
               }
-              j++
+            } else {
+              if (height - this.data.item.height  < this.startY    && height > this.y ) {
+                isSetItem && (this.dragWeek ? this.setWeek (timeIndex, this.dragValue) : this.setDay(i - 1, timeIndex, this.dragValue))
+                
+              }
+              
+              if ( height - this.data.item.height  < this.startY && height  > this.minY ) {
+                if (this.startX < this.x) {
+                  if (this.x < this.maxX && width + this.data.item.width < this.maxX && width > this.x  - this.data.item.width ) {
+                    this.setDay(i + 1, timeIndex, !this.dragValue, '3')
+                  }
+                } else {
+                  if (this.x > this.minX && width > this.minX - this.data.item.width  && width < this.x  - this.data.item.width ) {
+                    this.setDay(i , timeIndex, !this.dragValue, '3')
+                  }
+                }
+              }
+              if (this.y > this.minY) {
+                if (height   > this.minY    && height < this.y) {
+                  isSetItem && this.setDay(i - 1, timeIndex, !this.dragValue, '4')
+                }
+              }
             }
-          })
-        } 
+            if (this.startX < this.x) {
+              if (this.x < this.maxX) {
+
+              }
+            }
+            j++
+          }
+        })
+      } 
+
       }
     },
     toggleWeek (time, status) {
@@ -264,6 +339,7 @@ export default {
           } else {
           }
         }
+
       }
       this.$emit('input', this.timetable);
     },
