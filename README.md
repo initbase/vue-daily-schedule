@@ -21,7 +21,8 @@ yarn add vue-daily-scheduler
 ```
 Browser
 ```html
-<script src="https://unpkg.com/vue-daily-scheduler@latest/dist/vue-schedule.min.js" />
+<link href="https://unpkg.com/vue-daily-scheduler@latest/dist/vue-schedule.min.css" ref="stylesheet" />
+<script src="https://unpkg.com/vue-daily-scheduler@latest/dist/vue-schedule.min.js"></script>
 ```
 
 then, use inside a component
@@ -51,6 +52,28 @@ use it inside vue template
 <template>
     <div>
         <VueSchedule v-model="schedule" />
+    </div>
+</template>
+```
+
+### Props
+|Props|Desc|Type|Default|
+|---|---|---|---|
+|`bg`|Block scheduler bacground color|`String`|`#223642`|
+|`bgHover`|Block scheduler bacground color when on hover|`String`|`#84dafc7a`|
+|`bgActive`|Block scheduler bacground color when active|`String`|`#84c9fc`|
+|`textColor`|Text color inside block scheduler|`String`|`#000`|
+#### Example
+```html
+<template>
+    <div>
+        <VueSchedule 
+            v-model="schedule" 
+            bg="red"
+            bgHover="gray"
+            bgActive="black"
+            textColor="#fff"
+        />
     </div>
 </template>
 ```

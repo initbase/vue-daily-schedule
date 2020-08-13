@@ -24,17 +24,20 @@
     cursor: pointer;
   }
   .vws-rule-time-week, .vws-rule-time-item{
-    background: #223642;
+    /* background: #223642; */
+    background: var(--vws-bg);
   }
   
   .vws-rule-time-week.active, .vws-rule-time-item.active{
-    background: #84c9fc;
+    /* background: #84c9fc; */
+    background: var(--vws-bgActive);
   }
   .vws-rule-time-week:hover, 
   .vws-rule-time-item:hover, 
   .vws-rule-time-week.active:hover, 
   .vws-rule-time-item.active:hover{
-    background: #84dafc7a;
+    /* background: #84dafc7a; */
+    background: var(--vws-bgHover);
   }
   
   .vws-rule-time-item span{
@@ -55,5 +58,6 @@
   .vws-rule-time-item.active span {
     display: block;
     text-align: center;
-    color: #000;
+    /* color: #000; */
+    color: var(--vws-text);
   }

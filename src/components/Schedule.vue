@@ -7,7 +7,7 @@ Copyright Sultan Ads 2020.
 -->
 
 <template>
-<div style="position: relative">
+<div style="position: relative" :style="rootCssVar">
   <div class="vws-rule-custom" style='user-select: none;'>
     <div class="vws-rule-row">
       <div class="vws-table-rule">
@@ -114,7 +114,27 @@ Copyright Sultan Ads 2020.
 <script>
 import '../assets/style.css'
 export default {
-  props: ['value'],
+  props: {
+    value: {
+      type: Object
+    },
+    bg: {
+      type: String,
+      default: '#223642'
+    },
+    bgHover: {
+      type: String,
+      default: '#84dafc7a'
+    },
+    bgActive: {
+      type: String,
+      default: '#84c9fc'
+    },
+    textColor: {
+      type: String,
+      default: '#000'
+    }
+  },
   data () {
     return {
       timeArray: [],
@@ -390,6 +410,16 @@ export default {
       if (val) {
         this.timetable = val;
       }      
+    }
+  },
+  computed: {
+    rootCssVar () {
+      return {
+        '--vws-bg': this.bg,
+        '--vws-bgActive': this.bgActive,
+        '--vws-bgHover': this.bgHover,
+        '--vws-text': this.textColor
+      }
     }
   }
 }
