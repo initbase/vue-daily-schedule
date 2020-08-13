@@ -112,7 +112,7 @@ Copyright Sultan Ads 2020.
 </template>
 
 <script>
-import '../assets/style.css'
+// import '../assets/style.css'
 export default {
   props: {
     value: {
@@ -424,3 +424,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@import url('../assets/style.css');
+</style>
