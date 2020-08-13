@@ -5,7 +5,7 @@
       <span style="padding: 10px">Vue week schedule</span>
     </div>
     <div style="width: 500px; margin: 0 auto; padding: 20px">
-      <schedule v-model="schedule" />
+      <schedule v-model="schedule" bgHover="black" />
     </div>
     <div style="margin: 20px; padding: 20px; background-color: gray; color: white">
       <code>{{ JSON.stringify(schedule) }}</code>
