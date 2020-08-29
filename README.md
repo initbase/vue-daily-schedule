@@ -84,7 +84,7 @@ Feel free if you want to submit pull request or an issue.
 
 ##### Creator
 1. Burhanuddin Ahmad (Layoutting)
-2. Oleg Zernov (Awesome draggable funciton)
+2. Oleg Zernov (Awesome draggable functions)
 
 ### License
  MIT
