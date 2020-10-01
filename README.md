@@ -85,7 +85,8 @@ use it inside vue template
 Feel free if you want to submit pull request or an issue.
 
 ##### Creator
-1. Burhanuddin Ahmad (Layoutting)
+1. Burhanuddin Ahmad (Layoutting) <a href="https://github.com/burhanahmeed"><img src="https://github.com/burhanahmeed.png" width="30"/></a>
+
 2. Oleg Zernov (Awesome draggable functions)
 
 ### License
