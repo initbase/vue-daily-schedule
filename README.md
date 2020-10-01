@@ -1,8 +1,10 @@
-# vue-daily-schedule / Vue week schedule
+# vue daily schedule
 
 <div align='center'>
 
 [![VEDR](./src/assets/preview.png)](.)
+
+Vue daily schedule is a custom Vue2 component to manage repeated schedule. It's a straightforward scheduler component you can use.
 
 </div>
 
