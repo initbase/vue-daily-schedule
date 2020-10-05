@@ -30,7 +30,7 @@ Browser
 then, use inside a component
 ```javascript
 import 'vue-daily-scheduler/dist/vue-schedule.min.css'
-import VueSchedule from 'vue-daily-schedule'
+import VueSchedule from 'vue-daily-scheduler'
 export default {
     components: {
         VueSchedule
