@@ -1,10 +1,10 @@
-# vue daily schedule
+# vue daily scheduler
 
 <div align='center'>
 
 [![VEDR](./src/assets/preview.png)](.)
 
-Vue daily schedule is a custom Vue2 component to manage repeated schedule. It's a straightforward scheduler component you can use.
+Vue daily scheduler is a custom Vue2 component to manage repeated schedule. It's a straightforward scheduler component you can use.
 
 </div>
 
@@ -85,13 +85,19 @@ use it inside vue template
 </template>
 ```
 
-### Contributor
+### Contribution
 Feel free if you want to submit pull request or an issue.
 
-##### Creator
-1. Burhanuddin Ahmad (Layoutting) <a href="https://github.com/burhanahmeed"><img src="https://github.com/burhanahmeed.png" width="30"/></a>
+##### Creators
+|Name|
+|---|
+|[Burhanuddin Ahmed](https://github.com/burhanahmeed/)|
+|[Oleg Zernov](https://github.com/sawyer3273)|
 
-2. Oleg Zernov (Awesome draggable functions)
+#### Thanks for help
+|Name|
+|---|
+|[lan1hotspots](https://github.com/lan1hotspots)|
 
 ### License
  MIT
