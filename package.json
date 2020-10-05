@@ -1,10 +1,10 @@
 {
   "name": "vue-daily-scheduler",
-  "version": "1.0.6", 
+  "version": "1.0.7", 
   "private": false,
   "author": "Burhanuddin Ahmed",
   "license": "MIT",
-  "description": "A Vue.js component for continuous weekly/daily scheduling",
+  "description": "A Vue.js component for continuous daily scheduling",
   "main": "dist/vue-schedule.umd.js",
   "module": "dist/vue-schedule.esm.js",
   "unpkg": "dist/vue-schedule.min.js",

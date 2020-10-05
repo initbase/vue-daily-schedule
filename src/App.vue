@@ -2,7 +2,7 @@
   <div id="app">
     <div>
       <img alt="Vue logo" src="./assets/logo.png" style="width: 50px; vertical-align: middle">
-      <span style="padding: 10px">Vue Daily Schedule</span>
+      <span style="padding: 10px">Vue Daily Scheduler</span>
     </div>
     <div style="width: 500px; margin: 0 auto; padding: 20px">
       <schedule 
