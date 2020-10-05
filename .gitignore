@@ -2,6 +2,10 @@
 node_modules
 /dist
 
+# netbeans
+project.properties
+project.xml
+
 # local env files
 .env.local
 .env.*.local

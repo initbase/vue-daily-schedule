@@ -5,7 +5,13 @@
       <span style="padding: 10px">Vue Daily Schedule</span>
     </div>
     <div style="width: 500px; margin: 0 auto; padding: 20px">
-      <schedule v-model="schedule" bgHover="black" />
+      <schedule 
+          v-model="schedule" 
+          :dayTable="dayTable"
+          bg="#223642"
+          bgHover="#84dafc7a"
+          bgActive="#84c9fc"
+          textColor="#000" />
     </div>
     <div style="margin: 20px; padding: 20px; background-color: gray; color: white">
       <code>{{ JSON.stringify(schedule) }}</code>
@@ -22,6 +28,7 @@ export default {
   },
   data () {
     return {
+      dayTable:['So','Mo','Tu','We','Th','Fr','Sa'],
       schedule: {
         0: [],
         1: [],

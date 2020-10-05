@@ -12,15 +12,9 @@ Copyright Sultan Ads 2020.
     <div class="vws-rule-row">
       <div class="vws-table-rule">
         <div class="vws-table-rule-heading">
-            <div class="vws-time-list vws-rule-time-time vws-time-rule opacity-0">Time</div>
-            <div class="text-center week-rule">Week</div>
-            <div class="text-center">Su</div>
-            <div class="text-center">Mo</div>
-            <div class="text-center">Tu</div>
-            <div class="text-center">We</div>
-            <div class="text-center">Th</div>
-            <div class="text-center">Fr</div>
-            <div class="text-center">Sa</div>
+            <div class="vws-time-list vws-rule-time-time vws-time-rule opacity-0">{{strTime}}</div>
+            <div class="text-center week-rule">{{strWeek}}</div>
+            <div class="text-center" v-for="(day, daynum) in dayTable" :key="daynum">{{day}}</div>
         </div>
         <div class="vws-table-rule-body" id='schelude' ref="draggableArea" @mousedown="startDrag" @mousemove="doDrag">
           <div ref="ruleTime" class="vws-rule-time" v-for="(t, idx) in timeArray" :key="idx">
@@ -40,69 +34,18 @@ Copyright Sultan Ads 2020.
               @click="toggleWeek(idx, checkFullWeek(idx))"
             ></div>
             <div 
+              v-for="(day, daynum) in dayTable" 
+              :key="daynum"
               ref="ruleTimeItem" 
               :class="{
                 'vws-time-list vws-rule-time-item': true, 
-                'active': timetable[0].find(el => el == idx ) != undefined ? true:false
+                'active': timetable[daynum].find(el => el == idx ) != undefined ? true:false
               }" 
-              @click="toggleDay(0, idx)"
+              @click="toggleDay(daynum, idx)"
             >
-              <span>Su</span>
+              <span>{{day}}</span>
             </div>
-            <div 
-              :class="{
-                'vws-time-list vws-rule-time-item': true, 
-                'active': timetable[1].find(el => el == idx ) != undefined ? true:false
-              }" 
-              @click="toggleDay(1, idx)"
-            >
-              <span>Mo</span>
-            </div>
-            <div 
-              :class="{
-                'vws-time-list vws-rule-time-item': true, 
-                'active': timetable[2].find(el => el == idx ) != undefined ? true:false
-              }" 
-              @click="toggleDay(2, idx)"
-            >
-              <span>Tu</span>
-            </div>
-            <div 
-              :class="{
-                'vws-time-list vws-rule-time-item': true, 
-                'active': timetable[3].find(el => el == idx ) != undefined ? true:false
-              }" 
-              @click="toggleDay(3, idx)"
-            >
-              <span>We</span>
-            </div>
-            <div 
-              :class="{
-                'vws-time-list vws-rule-time-item': true, 
-                'active': timetable[4].find(el => el == idx ) != undefined ? true:false
-              }" 
-              @click="toggleDay(4, idx)"
-            >
-              <span>Th</span>
-            </div>
-            <div 
-              :class="{
-                'vws-time-list vws-rule-time-item': true, 
-                'active': timetable[5].find(el => el == idx ) != undefined ? true:false
-              }" 
-              @click="toggleDay(5, idx)"
-            >
-              <span>Fr</span>
-            </div>
-            <div 
-              :class="{
-                'vws-time-list vws-rule-time-item': true, 
-                'active': timetable[6].find(el => el == idx ) != undefined ? true:false
-              }" 
-              @click="toggleDay(6, idx)"
-            >
-              <span>Sa</span>
-            </div>
+              
           </div>
         </div>
       </div>
@@ -117,6 +60,10 @@ export default {
   props: {
     value: {
       type: Object
+    },
+    steps: {
+      type: Number,
+      default: 60
     },
     bg: {
       type: String,
@@ -133,6 +80,19 @@ export default {
     textColor: {
       type: String,
       default: '#000'
+    },
+    dayTable:{
+      type: Array,
+      default: ['So','Mo','Tu','We','Th','Fr','Sa'],
+      validator: val => val.length == 7
+    },
+    strWeek:{
+      type: String,
+      default: 'Week'
+    },
+    strTime:{
+      type: String,
+      default: 'Time'
     }
   },
   data () {
@@ -383,7 +343,6 @@ export default {
     },
     setupCustom() {
       const vm = this;
-      var x = 60; //minutes interval
       var times = []; // time array
       var tt = 0; // start time
       var ap = ['AM', 'PM']; // AM-PM
@@ -392,7 +351,7 @@ export default {
         var hh = Math.floor(tt/60); // getting hours of day in 0-24 format
         var mm = (tt%60); // getting minutes of the hour in 0-55 format
         times[i] = ("0" + (hh)).slice(-2) + "." + ("0" + (mm)).slice(-2); // pushing data in array in [00:00 - 12:00 AM/PM format]
-        tt = tt + x;
+        tt = tt + this.steps;
       }
       vm.timeArray = times;
     
