@@ -62,9 +62,13 @@ use it inside vue template
 ### Props
 |Props|Desc|Type|Default|
 |---|---|---|---|
-|`bg`|Block scheduler bacground color|`String`|`#223642`|
-|`bgHover`|Block scheduler bacground color when on hover|`String`|`#84dafc7a`|
-|`bgActive`|Block scheduler bacground color when active|`String`|`#84c9fc`|
+|`steps`|The interval in minutes|`Number`|`60`|
+|`dayTable`|Array of day names for changing order or i18n|`Array`|`['So','Mo','Tu','We','Th','Fr','Sa']`|
+|`strWeek`|String for i18n support|`String`|`Week`|
+|`strTime`|String for i18n support|`String`|`Time`|
+|`bg`|Block scheduler background color|`String`|`#223642`|
+|`bgHover`|Block scheduler background color when on hover|`String`|`#84dafc7a`|
+|`bgActive`|Block scheduler background color when active|`String`|`#84c9fc`|
 |`textColor`|Text color inside block scheduler|`String`|`#000`|
 #### Example
 ```html
