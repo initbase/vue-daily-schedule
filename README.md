@@ -66,6 +66,9 @@ use it inside vue template
 |`dayTable`|Array of day names for changing order or i18n|`Array`|`['So','Mo','Tu','We','Th','Fr','Sa']`|
 |`strWeek`|String for i18n support|`String`|`Week`|
 |`strTime`|String for i18n support|`String`|`Time`|
+|`strDay:`|String for i18n support|`String`|`Day`|
+|`disableWeekSelect:`|Disable the whole week selection|`Boolean`|`false`|
+|`disableDaySelect:`|Disable the whole day selection|`Boolean`|`false`|
 |`bg`|Block scheduler background color|`String`|`#223642`|
 |`bgHover`|Block scheduler background color when on hover|`String`|`#84dafc7a`|
 |`bgActive`|Block scheduler background color when active|`String`|`#84c9fc`|

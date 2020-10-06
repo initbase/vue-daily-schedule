@@ -3,8 +3,7 @@ node_modules
 /dist
 
 # netbeans
-project.properties
-project.xml
+/nbproject
 
 # local env files
 .env.local

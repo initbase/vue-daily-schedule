@@ -13,10 +13,23 @@ Copyright Sultan Ads 2020.
       <div class="vws-table-rule">
         <div class="vws-table-rule-heading">
             <div class="vws-time-list vws-rule-time-time vws-time-rule opacity-0">{{strTime}}</div>
-            <div class="text-center week-rule">{{strWeek}}</div>
+            <div class="text-center week-rule" v-if="!disableWeekSelect">{{strWeek}}</div>
             <div class="text-center" v-for="(day, daynum) in dayTable" :key="daynum">{{day}}</div>
         </div>
         <div class="vws-table-rule-body" id='schelude' ref="draggableArea" @mousedown="startDrag" @mousemove="doDrag">
+
+          <div ref="ruleTime" class="vws-rule-time" v-if="!disableDaySelect">
+            <div ref="ruleTimeTime" class="vws-time-list vws-rule-time-time vws-time-rule" >{{strDay }}</div>
+            <div ref="ruleTimeWeek" class="vws-time-list" v-if="!disableWeekSelect"  />
+            <div 
+              v-for="(day, daynum) in dayTable" 
+              :key="daynum"
+              ref="ruleTimeItem" 
+              :class="{'vws-time-list vws-rule-time-item': true, 'active': checkFullDay(daynum)}" 
+              @click="toggleFullDay(daynum, checkFullDay(daynum))"
+             />
+          </div>
+              
           <div ref="ruleTime" class="vws-rule-time" v-for="(t, idx) in timeArray" :key="idx">
             <div 
               ref="ruleTimeTime" 
@@ -26,6 +39,7 @@ Copyright Sultan Ads 2020.
               {{ t }}
             </div>
             <div 
+              v-if="!disableWeekSelect"
               ref="ruleTimeWeek" 
               :class="{
                 'vws-time-list vws-rule-time-week': true, 
@@ -93,6 +107,18 @@ export default {
     strTime:{
       type: String,
       default: 'Time'
+    },
+    strDay:{
+      type: String,
+      default: 'Day'
+    },
+    disableDaySelect:{
+      type: Boolean,
+      default: false
+    },
+    disableWeekSelect:{
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -139,8 +165,8 @@ export default {
         width: this.$refs.ruleTimeTime[0].clientWidth,
       }
       let week = {
-        height: this.$refs.ruleTimeWeek[0].clientHeight,
-        width: this.$refs.ruleTimeWeek[0].clientWidth,
+        height: this.disableWeekSelect? 0 : this.$refs.ruleTimeWeek[0].clientHeight,
+        width: this.disableWeekSelect? 0 : this.$refs.ruleTimeWeek[0].clientWidth,
       }
       this.data = {container, time, item, week}
 
@@ -270,6 +296,19 @@ export default {
 
       }
     },
+    toggleFullDay (day, status) {
+      for(let t=0;t<(24/(this.steps/60));t++){  
+        let indexDay = this.timetable[day].findIndex(el => el == t);
+        if (indexDay != -1) {
+          if (status) {
+            this.timetable[day].splice(indexDay, 1);
+          }
+        } else {
+          this.timetable[day].push(t);
+        }
+      }
+      this.$emit('input', this.timetable);
+    },
     toggleWeek (time, status) {
       for (const key in [0,1,2,3,4,5,6]) {
         let indexDay = this.timetable[key].findIndex(el => el == time);
@@ -336,6 +375,14 @@ export default {
     checkFullWeek (time) {
       for (const key in this.timetable) {
         if (this.timetable[key].find(el => el == time) == undefined) {
+          return false;
+        }
+      }
+      return true;
+    },
+    checkFullDay (day) {
+      for(let t=0;t<(24/(this.steps/60));t++){  
+        if (this.timetable[day].find(el => el == t) == undefined) {
           return false;
         }
       }
