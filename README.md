@@ -101,6 +101,7 @@ Feel free if you want to submit pull request or an issue.
 |Name|
 |---|
 |[lan1hotspots](https://github.com/lan1hotspots)|
+|[Felix K](https://github.com/ganjaaa)|
 
 ### License
  MIT
