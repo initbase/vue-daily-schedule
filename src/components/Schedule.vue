@@ -73,7 +73,7 @@ Copyright Sultan Ads 2020.
 export default {
   props: {
     value: {
-      type: Object
+      type: [Array, Object]
     },
     steps: {
       type: Number,
