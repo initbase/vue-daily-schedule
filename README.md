@@ -64,6 +64,7 @@ use it inside vue template
 |---|---|---|---|
 |`steps`|The interval in minutes|`Number`|`60`|
 |`dayTable`|Array of day names for changing order or i18n|`Array`|`['So','Mo','Tu','We','Th','Fr','Sa']`|
+|`timeArray`|This props is optional. Array of time. `steps` props will be ignored if this props is filled.|`Array`|`[]`|
 |`strWeek`|String for i18n support|`String`|`Week`|
 |`strTime`|String for i18n support|`String`|`Time`|
 |`strDay`|String for i18n support|`String`|`Day`|
@@ -88,6 +89,18 @@ use it inside vue template
 </template>
 ```
 
+### with `timeArray`
+```html
+<template>
+    <div>
+        <VueSchedule 
+            v-model="schedule" 
+            :timeArray="['1AM', '3AM', '6AM', '9AM', '11AM', '3PM', '6PM', '9PM', '11PM']"
+        />
+    </div>
+</template>
+```
+
 ### Contribution
 Feel free if you want to submit pull request or an issue.
 
@@ -96,12 +109,6 @@ Feel free if you want to submit pull request or an issue.
 |---|
 |[Burhanuddin Ahmed](https://github.com/burhanahmeed/)|
 |[Oleg Zernov](https://github.com/sawyer3273)|
-
-#### Thanks for help
-|Name|
-|---|
-|[lan1hotspots](https://github.com/lan1hotspots)|
-|[Felix K](https://github.com/ganjaaa)|
 
 ### License
  MIT

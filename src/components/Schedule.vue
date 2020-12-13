@@ -100,6 +100,11 @@ export default {
       default: ['So','Mo','Tu','We','Th','Fr','Sa'],
       validator: val => val.length == 7
     },
+    timeArray: {
+      type: Array,
+      default: [],
+      validator: val => val.length > 0
+    },
     strWeek:{
       type: String,
       default: 'Week'
@@ -123,7 +128,7 @@ export default {
   },
   data () {
     return {
-      timeArray: [],
+      timeArrayLength: 24,
       timetable: {
         0: [],
         1: [],
@@ -309,7 +314,7 @@ export default {
       }
     },
     toggleFullDay (day, status) {
-      for(let t=0;t<(24/(this.steps/60));t++){  
+      for(let t=0;t<(this.timeArrayLength/(this.steps/60));t++){
         let indexDay = this.timetable[day].findIndex(el => el == t);
         if (indexDay != -1) {
           if (status) {
@@ -358,7 +363,7 @@ export default {
     },
     setFullDay(day, value){
       if (typeof this.timetable[day] !== 'undefined') {
-        for(let t=0;t<(24/(this.steps/60));t++){  
+        for(let t=0;t<(this.timeArrayLength/(this.steps/60));t++){  
           let indexDay = this.timetable[day].findIndex(el => el == t);
           if (value) {
             if (indexDay != -1) {
@@ -411,7 +416,7 @@ export default {
       return true;
     },
     checkFullDay (day) {
-      for(let t=0;t<(24/(this.steps/60));t++){  
+      for(let t=0;t<(this.timeArrayLength/(this.steps/60));t++){
         if (this.timetable[day].find(el => el == t) == undefined) {
           return false;
         }
@@ -420,18 +425,22 @@ export default {
     },
     setupCustom() {
       const vm = this;
-      var times = []; // time array
-      var tt = 0; // start time
-      var ap = ['AM', 'PM']; // AM-PM
-      //loop to increment the time and push results in array
-      for (var i=0;tt<24*60; i++) {
-        var hh = Math.floor(tt/60); // getting hours of day in 0-24 format
-        var mm = (tt%60); // getting minutes of the hour in 0-55 format
-        times[i] = ("0" + (hh)).slice(-2) + "." + ("0" + (mm)).slice(-2); // pushing data in array in [00:00 - 12:00 AM/PM format]
-        tt = tt + this.steps;
+      if (vm.timeArray.length > 0) {
+        vm.steps = 60
+        vm.timeArrayLength = vm.timeArray.length
       }
-      vm.timeArray = times;
-    
+      if (vm.timeArray.length == 0) {
+        var times = []; // time array
+        var tt = 0; // start time
+        //loop to increment the time and push results in array
+        for (var i=0;tt<24*60; i++) {
+          var hh = Math.floor(tt/60); // getting hours of day in 0-24 format
+          var mm = (tt%60); // getting minutes of the hour in 0-55 format
+          times[i] = ("0" + (hh)).slice(-2) + "." + ("0" + (mm)).slice(-2); // pushing data in array
+          tt = tt + vm.steps;
+        }
+        vm.timeArray = times;
+      }
     },
   },
   mounted () {
