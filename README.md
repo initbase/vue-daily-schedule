@@ -101,7 +101,7 @@ use it inside vue template
 </template>
 ```
 ### Future plans
-- [] added disabled time props
+- &#9744; add disabled time props
 
 
 ### Contribution
