@@ -100,6 +100,9 @@ use it inside vue template
     </div>
 </template>
 ```
+### Future plans
+- [] added disabled time props
+
 
 ### Contribution
 Feel free if you want to submit pull request or an issue.
