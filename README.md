@@ -12,6 +12,8 @@ Vue daily scheduler is a custom Vue2 component to manage repeated schedule. It's
 
 [Demo here](https://vue-daily-schedule.vercel.app/)
 
+[NPMJS](https://www.npmjs.com/package/vue-daily-scheduler)
+
 ### Install
 Node
 ```
