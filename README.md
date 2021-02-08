@@ -8,6 +8,8 @@ Vue daily scheduler is a custom Vue2 component to manage repeated schedule. It's
 
 </div>
 
+![npm](https://img.shields.io/npm/dt/vue-daily-schedule) 
+
 ### Demo
 
 [Demo here](https://vue-daily-schedule.vercel.app/)
