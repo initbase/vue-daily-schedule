@@ -5,6 +5,7 @@ import replace from "rollup-plugin-replace";
 import uglify from "rollup-plugin-uglify-es";
 import minimist from "minimist";
 import scss from 'rollup-plugin-scss';
+import css from 'rollup-plugin-css-only';
 
 const argv = minimist(process.argv.slice(2));
 
@@ -20,6 +21,9 @@ const config = {
       "process.env.NODE_ENV": JSON.stringify("production")
     }),
     commonjs(),
+    css({
+      output: 'dist/vue-schedule.min.css'
+    }),
     vue({
       css: true,
       compileTemplate: true,
