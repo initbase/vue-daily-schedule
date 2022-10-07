@@ -13,7 +13,8 @@ const config = {
   input: "src/plugin.js",
   output: {
     name: "VueSchedule",
-    exports: "named"
+    exports: "named",
+    extractCSS: true,
   },
   plugins: [
     // external,
@@ -22,10 +23,10 @@ const config = {
     }),
     commonjs(),
     css({
-      output: 'dist/vue-schedule.min.css'
+      output: 'vue-schedule.min.css'
     }),
     vue({
-      css: true,
+      css: false,
       compileTemplate: true,
       template: {
         isProduction: true

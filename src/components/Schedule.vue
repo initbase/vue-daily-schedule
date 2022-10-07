@@ -470,6 +470,5 @@ export default {
 }
 </script>
 
-<style scoped>
-@import url('../assets/style.css');
+<style scoped src="../assets/style.css">
 </style>

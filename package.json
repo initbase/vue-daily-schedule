@@ -1,6 +1,6 @@
 {
   "name": "vue-daily-scheduler",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "private": false,
   "author": "Burhanuddin Ahmed",
   "license": "MIT",
@@ -52,7 +52,8 @@
     "rollup-plugin-uglify-es": "0.0.1",
     "rollup-plugin-vue": "^4.7.2",
     "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "rollup-plugin-css-only": "^3.1.0"
   },
   "browserslist": [
     "> 1%",
@@ -61,8 +62,5 @@
   ],
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest"
-  },
-  "dependencies": {
-    "rollup-plugin-css-only": "^3.1.0"
   }
 }
