@@ -38,9 +38,9 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife --file dist/vue-schedule.min.js"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.4.0",
-    "@vue/cli-plugin-unit-jest": "^4.4.0",
-    "@vue/cli-service": "^4.4.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-unit-jest": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "@vue/test-utils": "^1.0.3",
     "cross-env": "^5.2.0",
     "minimist": "^1.2.0",
@@ -50,7 +50,7 @@
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-scss": "^2.5.0",
     "rollup-plugin-uglify-es": "0.0.1",
-    "rollup-plugin-vue": "^4.7.2",
+    "rollup-plugin-vue": "^6.0.0",
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11",
     "rollup-plugin-css-only": "^3.1.0"
